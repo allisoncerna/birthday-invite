@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Invitation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="card-visual">
+        
+        <div class="text-overlay">
+            <h1>You Have Been Summoned</h1>
+            <p>To an evening of board games <br>& dark enchantments</p>
+            
+            <div style="margin: 10px 0;">
+                <p><strong>DATE:</strong> July 18, 2026</p>
+                <p><strong>TIME:</strong> 5:00 PM</p>
+                <p><strong>LOCATION:</strong> 9801 NW 18th St<br>Coral Springs FL 33071</p>
+            </div>
+
+            <form id="rsvp-form" action="https://script.google.com/macros/s/AKfycbwW-_zEifXncZ6LIPS6CZnYX0LQME8d7R4AsiC3Cg0tLSN6NJP-vmfR_MCXVcqv5444/exec" method="POST">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <select name="Attending">
+                    <option value="Yes">I shall answer the summons</option>
+                    <option value="No">I must decline the quest</option>
+                </select>
+                <button type="submit">RSVP NOW</button>
+            </form>
+        </div>
+
+    </div>
+<script>
+    const form = document.getElementById('rsvp-form');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+        }).then(() => {
+            alert("Your RSVP has been recorded. See you there!");
+            form.reset();
+        });
+    });
+</script>
+</body>
+</html>
