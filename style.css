@@ -66,7 +66,7 @@ body::before {
     align-items: center;
     position: relative;
     /* Add padding here to move the whole block down from the top of the paper */
-    padding-top: 70%; 
+    padding-top: 5%; 
 }
 
 h1 {
@@ -100,7 +100,7 @@ p {
     /* This creates the space between the last text and the form */
     margin-bottom: 70%; 
     font-weight: bold;
-    width: 85%;
+    width: 5%;
 }
 
 #rsvp-form input, 
