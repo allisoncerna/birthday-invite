@@ -1,0 +1,184 @@
+/* --- Import Gothic Font --- */
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+
+/* --- Global Styles --- */
+body {
+    /* Stacking background images: Lace (top), then radial gradient (bottom) */
+    background-image: url('blacklace_.png'), radial-gradient(circle, #2a0000 0%, #0d0d0d 70%);
+    background-size: cover, cover;
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
+    background-attachment: fixed, fixed;
+    background-blend-mode: overlay, normal;
+    background-color: #0d0d0d;
+    
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'IM Fell English SC', serif;
+    color: #000000;
+}
+
+/* --- Subtle Texture Overlay --- */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+                      radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px);
+    background-size: 550px 550px, 350px 350px;
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+/* --- Card Wrapper --- */
+/* --- Card Wrapper: Keeps the image centered and scalable --- */
+.card-visual {
+    width: 90%;
+    max-width: 600px;
+    background-image: url('Gemini_Generated_Image_z3gp7rz3gp7rz3gp.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* Use flex to perfectly center the text overlay inside the graphic */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 0.78; /* Maintains the envelope proportions */
+    padding: 10%;        /* Keeps text away from the edges of the image */
+    box-sizing: border-box;
+}
+
+/* --- Text Overlay --- */
+.text-overlay {
+    text-align: center;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* Change 'center' to 'flex-start' so we can control position manually */
+    justify-content: flex-start; 
+    align-items: center;
+    position: relative;
+    /* Add padding here to move the whole block down from the top of the paper */
+    padding-top: 70%; 
+}
+
+h1 {
+    font-size: clamp(1rem, 4vw, 1.8rem); /* Scales between 1rem and 1.8rem */
+    margin: 0 0 1vh 0;
+    text-transform: uppercase;
+}
+
+p {
+    font-size: clamp(0.7rem, 2.5vw, 1.1rem); /* Scales text smoothly */
+    line-height: 1.2;
+    margin: 0.5vh 0;
+    font-weight: 600;
+}
+
+/* Maintain aspect ratio on larger screens */
+@media (min-width: 600px) {
+    .card-visual {
+        aspect-ratio: 0.77;
+    }
+}
+
+
+/* --- RSVP Form --- */
+#rsvp-form {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    /* This pushes the form to the bottom of the 'paper' area */
+    margin-top: auto; 
+    /* This creates the space between the last text and the form */
+    margin-bottom: 70%; 
+    font-weight: bold;
+    width: 85%;
+}
+
+#rsvp-form input, 
+#rsvp-form select {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 2px solid #333 !important;
+    padding: 6px;
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.9rem; /* Setting to 1rem prevents auto-zoom on mobile */
+    font-weight: bold;
+    color: #000 !important;
+    text-align: center;
+    outline: none;
+}
+
+#rsvp-form button {
+    background: transparent;
+    border: 1px solid #5a0000;
+    color: #000000;
+    font-family: 'IM Fell English SC', serif;
+    font-size: 1rem;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 0 5px #000;
+}
+
+#rsvp-form button:hover {
+    background: #5a0000;
+    color: #fff;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 500px) {
+    h1 { font-size: 1.1rem; }
+    p { font-size: 0.85rem; }
+}
+
+.form-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 80%;
+    font-weight: bold;
+    margin: 0 auto; /* Center the form row */
+}
+
+.form-row select {
+    flex: 3; /* The select box takes up more room */
+}
+
+.form-row input[type="number"] {
+    flex: 1; /* The number box is smaller */
+    min-width: 50px;
+    text-align: center;
+}
+
+#rsvp-form input[type="text"] {
+    /* Create the blur effect */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* For Safari support */
+    
+    /* Subtle white background that is slightly transparent */
+    background: rgba(255, 255, 255, 0.2) !important;
+    
+    /* Add a slight border to define the box */
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 5px;
+    
+    /* Ensure text is readable */
+    color: #493d3d !important;
+    padding: 10px;
+    font-weight: bold;
+}
+
+/* Ensure placeholder text is also visible */
+#rsvp-form input[type="text"]::placeholder {
+    color: rgba(74, 55, 55, 0.7);
+}
