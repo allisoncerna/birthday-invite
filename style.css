@@ -99,7 +99,8 @@ p {
     margin-top: auto; 
     /* This creates the space between the last text and the form */
     margin-bottom: 70%; 
-    width: 100%;
+    font-weight: bold;
+    width: 85%;
 }
 
 #rsvp-form input, 
@@ -110,6 +111,7 @@ p {
     padding: 6px;
     font-family: 'IM Fell English SC', serif;
     font-size: 0.9rem; /* Setting to 1rem prevents auto-zoom on mobile */
+    font-weight: bold;
     color: #000 !important;
     text-align: center;
     outline: none;
@@ -125,6 +127,7 @@ p {
     margin-top: 10px;
     cursor: pointer;
     text-transform: uppercase;
+    box-shadow: 0 0 5px #000;
 }
 
 #rsvp-form button:hover {
@@ -136,4 +139,46 @@ p {
 @media (max-width: 500px) {
     h1 { font-size: 1.1rem; }
     p { font-size: 0.85rem; }
+}
+
+.form-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 80%;
+    font-weight: bold;
+    margin: 0 auto; /* Center the form row */
+}
+
+.form-row select {
+    flex: 3; /* The select box takes up more room */
+}
+
+.form-row input[type="number"] {
+    flex: 1; /* The number box is smaller */
+    min-width: 50px;
+    text-align: center;
+}
+
+#rsvp-form input[type="text"] {
+    /* Create the blur effect */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* For Safari support */
+    
+    /* Subtle white background that is slightly transparent */
+    background: rgba(255, 255, 255, 0.2) !important;
+    
+    /* Add a slight border to define the box */
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 5px;
+    
+    /* Ensure text is readable */
+    color: #493d3d !important;
+    padding: 10px;
+    font-weight: bold;
+}
+
+/* Ensure placeholder text is also visible */
+#rsvp-form input[type="text"]::placeholder {
+    color: rgba(74, 55, 55, 0.7);
 }
